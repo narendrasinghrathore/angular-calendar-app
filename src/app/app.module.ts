@@ -8,6 +8,8 @@ import { CalendarComponent } from './components/stateless/calendar/calendar.comp
 import { MonthComponent } from './components/stateless/month/month.component';
 import { WeekComponent } from './components/stateless/week/week.component';
 import { DayComponent } from './components/stateless/day/day.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { DayComponent } from './components/stateless/day/day.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

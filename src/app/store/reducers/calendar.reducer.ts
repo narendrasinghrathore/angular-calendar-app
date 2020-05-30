@@ -3,13 +3,23 @@ import * as Actions from "../actions/calendar.action";
 import IState from "../../interaface/store.interface";
 export const initialState: IState = {
   totalDaysOfMonth: 0,
+  loading: false,
 };
 
 const calendarReducer = createReducer(
   initialState,
-  on(Actions.getTotalDaysOfMonth, (state, { year, month }) => ({
+  on(Actions.getTotalDaysOfMonth, (state) => ({
     ...state,
-    totalDaysOfMonth: 0,
+    loading: true,
+  })),
+  on(Actions.getTotalDaysOfMonthSuccess, (state, { totalNumberOfDays }) => ({
+    ...state,
+    loading: false,
+    totalNumberOfDays,
+  })),
+  on(Actions.getTotalDaysOfMonthFail, (state) => ({
+    ...state,
+    loading: false,
   }))
 );
 

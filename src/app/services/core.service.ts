@@ -12,7 +12,7 @@ export default class CoreService {
    * @param year Year in number.
    * @param month Month in number. We use 0 based index for months.
    */
-  totalNumberOfMonths(year?: number, month?: number) {
+  totalNumberOfMonths(year?: number, month?: number): number {
     if (!year && !month) return 0;
     try {
       return new Date(year, month, 0).getDate();

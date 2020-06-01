@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { IGetTotalDaysOfMonth } from "../../../app/interaface/store.interface";
+import { IGetTotalDaysOfMonth } from "@app/models";
 const actionName = "[Calendar]:";
 
 export const GET_TOTAL_DAYS_OF_MONTH = `${actionName} Init - Get total number of days of given months`;
@@ -13,7 +13,7 @@ export const getTotalDaysOfMonth = createAction(
 export const getTotalDaysOfMonthSuccess = createAction(
   GET_TOTAL_DAYS_OF_MONTH_SUCCESS,
   props<{
-    totalNumberOfDays: number;
+    totalDaysOfMonth: number;
   }>()
 );
 export const getTotalDaysOfMonthFail = createAction(

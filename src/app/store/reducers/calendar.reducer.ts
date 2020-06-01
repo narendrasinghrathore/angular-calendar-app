@@ -1,7 +1,7 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import * as Actions from "../actions/calendar.action";
-import IState from "../../interaface/store.interface";
-export const initialState: IState = {
+import { ICalendarState } from "@app/models";
+export const initialState: ICalendarState = {
   totalDaysOfMonth: 0,
   loading: false,
 };
@@ -12,10 +12,10 @@ const calendarReducer = createReducer(
     ...state,
     loading: true,
   })),
-  on(Actions.getTotalDaysOfMonthSuccess, (state, { totalNumberOfDays }) => ({
+  on(Actions.getTotalDaysOfMonthSuccess, (state, { totalDaysOfMonth }) => ({
     ...state,
     loading: false,
-    totalNumberOfDays,
+    totalDaysOfMonth,
   })),
   on(Actions.getTotalDaysOfMonthFail, (state) => ({
     ...state,
@@ -23,6 +23,6 @@ const calendarReducer = createReducer(
   }))
 );
 
-export function reducer(state: IState | undefined, action: Action) {
+export function reducer(state: ICalendarState | undefined, action: Action) {
   return calendarReducer(state, action);
 }

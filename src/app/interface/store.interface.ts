@@ -1,4 +1,4 @@
-export default interface IState {
+export interface ICalendarState {
   totalDaysOfMonth: number;
   loading: boolean;
 }
